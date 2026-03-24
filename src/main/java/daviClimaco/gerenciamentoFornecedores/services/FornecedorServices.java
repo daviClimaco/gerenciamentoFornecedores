@@ -15,8 +15,8 @@ public class FornecedorServices {
         this.fornecedorRepository = fornecedorRepository;
     }
 
-    public void salvar(Fornecedor fornecedor){
-        fornecedorRepository.save(fornecedor);
+    public Fornecedor salvar(Fornecedor fornecedor){
+        return fornecedorRepository.save(fornecedor);
     }
 
     public void deletar(Long id){
@@ -29,5 +29,10 @@ public class FornecedorServices {
 
     public List<Fornecedor> buscarTodos(){
         return fornecedorRepository.findAll();
+    }
+
+    public Fornecedor atualizar(Long id, Fornecedor fornecedor){
+        fornecedor.setId(id);
+        return fornecedorRepository.save(fornecedor);
     }
 }
